@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <title>Footer</title>
+</head>
+<body>
+
+<footer class="footer bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <!-- First Column: Logo -->
+            <div class="col-md-2 text-center mb-2 mb-md-0">
+                <h1 class=" width=100">Optimize . </h1>
+            </div>
+            <!-- Second Column: Links -->
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-center">Quick Links</h5>
+                <ul class="list-unstyled text-center">
+                    <li><a href="#services" class="text-light">Features</a></li>
+                    <li><a href="#pricing" class="text-light">Pricing</a></li>
+                    <li><a href="#casestudies" class="text-light">Case Studies</a></li>
+                    <li><a href="#contact" class="text-light">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Third Column: Contact Info and Social Media -->
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h5 class="text-center">Contact Us</h5>
+                <p class="text-center">1234 Street Name, City, Country</p>
+                <p class="text-center">Email: <a href="mailto:info@example.com" class="text-light">info@example.com</a></p>
+                <p class="text-center">Phone: <a href="tel:+1234567890" class="text-light">+123 456 7890</a></p>
+
+                <div class="text-center mt-3">
+                    <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center mt-4">
+            <p>&copy; 2024 Elite Coders. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Optional: Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+
+</body>
+</html>

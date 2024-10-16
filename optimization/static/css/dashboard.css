@@ -1,0 +1,125 @@
+/* Sidebar */
+.sidebar {
+    background-color: #2c3e50;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    color: #ecf0f1;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar a:hover {
+    background-color: #34495e;
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h4 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #3498db;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-outline-dark {
+    border: 1px solid #2c3e50;
+}
+
+.btn-outline-dark:hover {
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* File Input */
+input[type="file"] {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* General Layout */
+.container-fluid {
+    padding: 0;
+}
+
+body {
+    background-color: #f0f3f4;
+}
+
+/* Ensuring Cards Stretch to Full Height */
+.row .col-md-6 .card {
+    height: 100%;
+}
+
+.process-step {
+    margin-bottom: 20px; /* Spacing between steps */
+}
+
+.step-content {
+    display: flex;
+    align-items: flex-start; /* Align icon and heading */
+}
+
+.icon {
+    margin-right: 15px; /* Spacing between icon and text */
+}
+
+/* Dotted line to connect icons */
+.dotted-line {
+    height: 10px; /* Height of the line */
+    border-left: 2px dotted #ccc; /* Dotted line style */
+    position: relative;
+    left: 20px; /* Align with the icons */
+}
+
+/* Optional: Increase icon size */
+.icon i {
+    font-size: 24px;
+}
+
+/* Optional: Style h5 and p tags */
+h5 {
+    margin: 0; /* Remove default margin for better alignment */
+}
+
+p {
+    margin: 5px 20px 0; /* Add space above the paragraph */
+}
+
+/* Make the dotted line extend from the top of the icon to the bottom of the content */
+.process-step:last-child .dotted-line {
+    display: none; /* Hide the last line */
+}
+

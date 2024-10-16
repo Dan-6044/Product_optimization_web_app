@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies</title>
+    <link rel="stylesheet" href="{% static 'css/casestudy.css' %}">
+</head>
+<body>
+    <section class="case-studies-section" id="casestudies">
+        <h1>Our Case Studies</h1>
+        <div class="case-studies-container">
+            <div class="case-study-card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="{% static 'images/case4.jpeg' %}" alt="Case Study 1 Image">
+                    </div>
+                    <div class="card-details">
+                        <div class="card-header">
+                            <h2>Case Study Title 1</h2>
+                            <p class="description">Brief description of the case study, highlighting the key aspects and results.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/case-study/1" class="btn btn-view">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="{% static 'images/case2.jpg' %}" alt="Case Study 2 Image">
+                    </div>
+                    <div class="card-details">
+                        <div class="card-header">
+                            <h2>Case Study Title 2</h2>
+                            <p class="description">Brief description of the case study, highlighting the key aspects and results.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/case-study/2" class="btn btn-view">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="{% static 'images/case3.jpg' %}" alt="Case Study 3 Image">
+                    </div>
+                    <div class="card-details">
+                        <div class="card-header">
+                            <h2>Case Study Title 3</h2>
+                            <p class="description">Brief description of the case study, highlighting the key aspects and results.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/case-study/3" class="btn btn-view">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                <div class="card-content">
+                    <div class="card-image">
+                        <img src="{% static 'images/case1.jpeg' %}" alt="Case Study 4 Image">
+                    </div>
+                    <div class="card-details">
+                        <div class="card-header">
+                            <h2>Case Study Title 4</h2>
+                            <p class="description">Brief description of the case study, highlighting the key aspects and results.</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/case-study/4" class="btn btn-view">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

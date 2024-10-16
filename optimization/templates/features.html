@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/features.css' %}">
+    <title></title>
+</head>
+<body>
+    <!-- frontend/templates/frontend/features.html -->
+
+<section id="features">
+    <h2> Features</h2>
+    <div class="features-container">
+        <div class="feature-item">
+            <h3>Project Management</h3>
+            <p>Easily create and manage projects with our intuitive dashboard.</p>
+            <img src="{% static 'images/scheduling2.jpg' %}" alt="Project Management">
+        </div>
+        <div class="feature-item">
+            <h3>Resource Optimization</h3>
+            <p>Optimize resource allocation for maximum efficiency and minimal costs.</p>
+            <img src="{% static 'images/scheduling1.jpg' %}" alt="Resource Optimization">
+        </div>
+        <div class="feature-item">
+            <h3>Scheduling</h3>
+            <p>Automate task scheduling to meet deadlines and enhance productivity.</p>
+            <img src="{% static 'images/project-management.jpg' %}" alt="Scheduling">
+        </div>
+    </div>
+</section>
+
+
+
+</body>
+</html>

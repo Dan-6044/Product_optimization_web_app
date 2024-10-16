@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Optimization</title>
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+</head>
+<body>
+
+    <!-- Combined Hero and Info Section -->
+    <section class="hero-info-section">
+        <div class="hero-section">
+            <div class="hero-slides">
+                <div class="hero-slide" style="background-image: url('{% static 'images/optimization1.jpg' %}')"></div>
+                <div class="hero-slide" style="background-image: url('{% static 'images/optimization2.jpg' %}')"></div>
+                <div class="hero-slide" style="background-image: url('{% static 'images/optimization3.jpg' %}')"></div>
+            </div>
+
+            <div class="cta-container">
+                <div class="cta-content">
+                    <h1>Optimize Your Products</h1>
+                    <p>Efficiently schedule and manage resources for your projects.</p>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Optimize Now</button>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section (Below Hero Section) -->
+        <div class="info-section">
+            <div class="icon-container">
+                <div class="info-items">
+                    <div class="info-item">
+                        <img src="{% static 'images/opt1.png' %}" alt="Optimization Icon" class="info-icon">
+                        <h3>Advanced Optimization</h3>
+                        <p>Utilize cutting-edge algorithms for resource optimization.</p>
+                    </div>
+                    <div class="info-item">
+                        <img src="{% static 'images/opt2.png' %}" alt="Efficiency Icon" class="info-icon">
+                        <h3>Increase Efficiency</h3>
+                        <p>Maximize resource allocation and minimize costs.</p>
+                    </div>
+                    <div class="info-item">
+                        <img src="{% static 'images/opt3.png' %}" alt="Support Icon" class="info-icon">
+                        <h3>Expert Support</h3>
+                        <p>Our team is here to help you achieve your goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? 1 : 0;
+            });
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % totalSlides;
+            showSlide(slideIndex);
+        }
+
+        showSlide(slideIndex);
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    </script>
+
+</body>
+</html>

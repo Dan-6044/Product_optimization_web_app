@@ -1,0 +1,35 @@
+/* Navbar styles */
+.navbar {
+    background-color: rgba(14, 13, 13, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(0px); /* Optional blur for transparency effect */
+    padding: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar .nav-link {
+    color: white;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand h1 {
+    color: white;
+    font-size: 2rem; /* Larger font size for brand */
+}
+
+.navbar .nav-link:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.navbar-brand img {
+    height: 50px; /* Adjust logo height */
+}
+
+.navbar.fixed-top {
+    position: fixed;
+    width: 100%;
+    z-index: 1030;
+    top: 0;
+    left: 0;
+}

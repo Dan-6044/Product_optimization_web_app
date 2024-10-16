@@ -1,0 +1,39 @@
+/* Ensure modal has a transparent background */
+.modal-backdrop.show {
+    background-color: transparent; /* Make the backdrop transparent */
+}
+
+.modal-content {
+    position: relative;
+    z-index: 1050; /* Ensure modal content is on top */
+}
+/* Override Bootstrap modal backdrop to be transparent */
+.modal-backdrop.show {
+    background-color: transparent; /* Make the backdrop transparent */
+}
+
+/* Ensure modal content is on top of the other components */
+.modal-content {
+    position: relative;
+    z-index: 1050; /* Ensure modal content is on top */
+    border-radius: 0.3rem;
+}
+
+
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out; /* Smooth transition for appearance */
+}
+
+.modal-dialog {
+    transform: translate(0, 0); /* Make sure the modal dialog is positioned correctly */
+}
+
+.invalid-feedback {
+    display: block;
+    color: #dc3545; /* Bootstrap danger color */
+}
+
+.is-invalid {
+    border-color: #dc3545;
+}
+

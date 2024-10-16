@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Optimization Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+
+<!-- Main Container -->
+<div class="container-fluid">
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex ms-auto">
+                        <button class="btn btn-outline-dark me-2" aria-label="Settings">
+                            <i class="bi bi-gear"></i>
+                        </button>
+                        <button class="btn btn-outline-dark me-2" aria-label="Expand">
+                            <i class="bi bi-arrows-expand"></i>
+                        </button>
+                        <span class="navbar-text me-2">{{ user.username }}</span>
+                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#profileModal" aria-label="User Profile">
+                            <i class="bi bi-person-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Sidebar and Content -->
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 sidebar p-3 bg-light text-white">
+            <h4 class="text-uppercase mb-4 text-muted">Navigation</h4>
+            <ul class="list-unstyled">
+                <li>
+                    <a href="#" class="d-flex align-items-center text-muted p-2 m-3">
+                        <i class="bi bi-house-door me-2"></i> User Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'excel_dashboard' %}" class="d-flex align-items-center text-muted p-2 m-3">
+                        <i class="bi bi-file-earmark-spreadsheet me-2"></i> Excel Dashboard
+                    </a>
+                </li>
+                <li>
+                    <h4 class="text-uppercase mb-4 text-muted">Custom</h4>
+                    <a href="#" class="d-flex align-items-center text-muted p-2 m-3">
+                        <i class="bi bi-card-checklist me-2"></i> Subscription
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="d-flex align-items-center text-muted p-2 m-3">
+                        <i class="bi bi-gear me-2"></i> Optimization
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-md-9 p-4">
+            <!-- Active Navigation Name and Icons -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3 id="activeNav" class="m-0">Dashboard</h3>
+                <div class="d-flex align-items-center">
+                    <span class="me-3">
+                        <i class="bi bi-calendar-date"></i>
+                        <span id="realTimeDate"></span>
+                    </span>
+                    <span class="me-3" style="cursor: pointer;" onclick="location.reload();">
+                        <i class="bi bi-arrow-clockwise"></i> Refresh
+                    </span>
+                    <span>
+                        <i class="bi bi-speedometer"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Row for File Upload and Popup Trigger -->
+            <div class="row">
+                <!-- Row for File Upload and Popup Trigger -->
+                <div class="row">
+                    <!-- File Upload Form Card -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h3>Your Analysis</h3>
+                                <h5 class="text-muted p-3">No Of Analysis</h5>
+                                <h6 class="text-danger ms-4"><strong>{{ analysis_count }}</strong></h6>
+                                <a href="#" class="btn btn-primary">View Latest Analysis</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Subscription Plan Card -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h4 class="text-muted">Subscription</h4>
+                                <p class="text-uppercase text-dark p-2"> <strong>{{ subscription.subscription_type }} Plan</strong></p>
+                                <h6 class="text-muted">Expires On</h6>
+                                <p class="text-capitalize text-primary p-2">{{ subscription.expiration_date }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Second Row with Analysis and Optimization Cards -->
+                <div class="row">
+                    <!-- Analysis Results Section -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h4>Upload Excel File</h4>
+                                <form action="{% url 'upload_excel' %}" method="POST" enctype="multipart/form-data" class="mt-4">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <label for="fileInput" class="form-label">Upload your Excel file (.xlsx)</label>
+                                        <input type="file" name="file" class="form-control" id="fileInput" accept=".xlsx" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                </form>
+                                                               
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Optimization Process Section -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h4>Optimization Process</h4>
+                    
+                                <div class="process-step">
+                                    <div class="step-content">
+                                        <div class="icon">
+                                            <i class="bi bi-person-circle"></i> <!-- User Profile Icon -->
+                                        </div>
+                                        <h5 class="text-info">User Profile Setup</h5>
+                                    </div>
+                                    <p>Details about the ongoing or completed optimization process will be shown here.</p>
+                                </div>
+                                <div class="dotted-line"></div>
+                    
+                                <div class="process-step">
+                                    <div class="step-content">
+                                        <div class="icon">
+                                            <i class="bi bi-airplane-engines"></i> <!-- Flight Icon -->
+                                        </div>
+                                        <h5 class="text-success">Flight Information</h5>
+                                    </div>
+                                    <p>Details about the ongoing or completed optimization process will be shown here.</p>
+                                </div>
+                                <div class="dotted-line"></div>
+                    
+                                <div class="process-step">
+                                    <div class="step-content">
+                                        <div class="icon">
+                                            <i class="bi bi-graph-up-arrow"></i> <!-- Optimization Icon -->
+                                        </div>
+                                        <h5 class="text-info">Optimization Execution</h5>
+                                    </div>
+                                    <p>Details about the ongoing or completed optimization process will be shown here.</p>
+                                </div>
+                                <div class="dotted-line"></div>
+                    
+                                <div class="process-step">
+                                    <div class="step-content">
+                                        <div class="icon">
+                                            <i class="bi bi-check-circle"></i> <!-- Completed Icon -->
+                                        </div>
+                                        <h5 class="text-success">Process Completion</h5>
+                                    </div>
+                                    <p>Details about the ongoing or completed optimization process will be shown here.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="profileModalLabel">User Profile</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6><strong>Username:</strong> {{ user.username }}</h6>
+                <h6><strong>Email:</strong> {{ user.email }}</h6>
+                <h6><strong>Joined On:</strong> {{ user.date_joined }}</h6>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">
+                    <a href="{% url 'logout' %}" style="color: white;">Log out</a>
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Real-Time Date
+    function updateDate() {
+        const now = new Date();
+        const options = { 
+            year: 'numeric', month: 'long', day: 'numeric', 
+            hour: '2-digit', minute: '2-digit', second: '2-digit' 
+        };
+        document.getElementById('realTimeDate').innerText = now.toLocaleString('en-US', options);
+    }
+    updateDate();
+    setInterval(updateDate, 1000); // Update every second
+</script>
+
+</body>
+</html>

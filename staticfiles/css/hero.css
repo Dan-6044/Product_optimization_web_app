@@ -1,0 +1,150 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero-info-section {
+    width: 100%;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.hero-slides {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.hero-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+.hero-slide:first-child {
+    opacity: 1;
+}
+
+.cta-container {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+}
+
+.cta-container h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.cta-container p {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cta-container .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-container .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Info Section Styles */
+.info-section {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.info-items {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.info-item {
+    flex: 1;
+    max-width: 300px;
+}
+
+.info-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 15px; /* Adjust this value for more or less rounding */
+    overflow: hidden;    /* Ensures that the image fits within the rounded corners */
+}
+
+
+.info-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .cta-container h1 {
+        font-size: 2rem;
+    }
+
+    .cta-container p {
+        font-size: 1rem;
+    }
+
+    .info-items {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .cta-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .cta-container p {
+        font-size: 0.9rem;
+    }
+
+    .info-item h3 {
+        font-size: 1.2rem;
+    }
+}

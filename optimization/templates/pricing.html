@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans</title>
+    <link rel="stylesheet" href="{% static 'css/pricing.css' %}">
+</head>
+<body>
+    <section class="pricing-section" id="pricing">
+        <h1>Choose Your Plan</h1>
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h2>Free Tier</h2>
+                    <p class="price">Free</p>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Access to basic features</li>
+                        <li>1 user account</li>
+                        <li>Community support</li>
+                        <li>Community support</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-free" data-bs-toggle="modal" data-bs-target="#registerModal">Start Free Tier</button>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h2>Monthly Subscription</h2>
+                    <p class="price">$99.0/month</p>
+                    <p class="expiry">Expires in 1 month</p>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Access to all features</li>
+                        <li>5 user accounts</li>
+                        <li>Priority support</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-btn-monthly" data-bs-toggle="modal" data-bs-target="#registerModal">Subscribe</button>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h2>Yearly Subscription</h2>
+                    <p class="price">$999.0/year</p>
+                    <p class="expiry">Expires in 1 year</p>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li>Access to all features</li>
+                        <li>Unlimited user accounts</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-yearly" data-bs-toggle="modal" data-bs-target="#registerModal">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
